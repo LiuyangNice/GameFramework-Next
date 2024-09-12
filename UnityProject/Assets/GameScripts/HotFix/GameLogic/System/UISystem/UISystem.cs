@@ -77,7 +77,7 @@ namespace GameLogic
             }
 
             UIController.RegisterAllController();
-            
+
             return true;
         }
 

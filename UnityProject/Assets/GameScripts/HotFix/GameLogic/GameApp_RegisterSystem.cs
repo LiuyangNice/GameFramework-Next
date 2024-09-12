@@ -3,6 +3,8 @@ using GameBase;
 using GameLogic;
 using GameFramework;
 using UnityGameFramework.Runtime;
+using System.Runtime.ExceptionServices;
+using UnityEngine;
 
 public partial class GameApp
 {
@@ -29,7 +31,8 @@ public partial class GameApp
     /// </summary>
     private void RegisterAllSystem()
     {
-        
+        AddLogicSys(UISystem.Instance);
+        AddLogicSys(InputManager.Instance);
     }
 
     /// <summary>

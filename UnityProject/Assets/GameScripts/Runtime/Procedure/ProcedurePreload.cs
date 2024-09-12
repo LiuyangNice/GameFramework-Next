@@ -45,7 +45,7 @@ namespace GameMain
             UILoadMgr.Show(UIDefine.UILoadUpdate, Utility.Text.Format(LoadText.Instance.Label_Load_Load_Progress, 0));
 
             GameEvent.Send("UILoadUpdate.RefreshVersion");
-
+            
             PreloadResources();
         }
 
@@ -93,7 +93,6 @@ namespace GameMain
             {
                 return;
             }
-
             ChangeState<ProcedureLoadAssembly>(procedureOwner);
         }
 

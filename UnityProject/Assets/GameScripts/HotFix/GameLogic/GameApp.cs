@@ -3,6 +3,7 @@ using System.Reflection;
 using GameLogic;
 using GameFramework;
 using UnityGameFramework.Runtime;
+using GameProto;
 
 public partial class GameApp: Singleton<GameApp>
 {
@@ -34,7 +35,7 @@ public partial class GameApp: Singleton<GameApp>
     /// </summary>
     private void StartGameLogic()
     {
-        
+
     }
 
     /// <summary>

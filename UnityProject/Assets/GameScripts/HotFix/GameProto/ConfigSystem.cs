@@ -58,5 +58,6 @@ namespace GameProto
             
             return new ByteBuf(bytes);
         }
+        
     }
 }
