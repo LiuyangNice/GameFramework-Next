@@ -12,12 +12,16 @@ namespace GameLogic
         // Start is called before the first frame update
         void Start()
         {
-            var eventBox = GetComponent<EventBox>();
-            if (eventBox)
+            var eventBox = GetComponentsInChildren<EventBox>();
+            if (eventBox.Length > 0)
             {
-                eventBox.clickDown.AddListener(SelectDown);
-                eventBox.clickHold.AddListener(SelectHold);
-                eventBox.clickUp.AddListener(SelectUp);
+                foreach (var item in eventBox)
+                {
+                    item.clickDown.AddListener(SelectDown);
+                    item.clickHold.AddListener(SelectHold);
+                    item.clickUp.AddListener(SelectUp);
+                }
+               
             }
             uiScaleValue = head.transform.parent.parent.localScale.x;
         }
@@ -63,13 +67,21 @@ namespace GameLogic
             if (other.GetComponent<BoxOutline>()!= null && other.gameObject.name == gameObject.name)
             {
                 selectTarget = other.gameObject;
+            }else if (other.GetComponent<BoxOutline>() != null && other.transform.parent.gameObject.name == gameObject.name)
+            {
+                selectTarget = other.gameObject;
             }
+
         }
         private void OnTriggerExit(Collider other)
         {
             if (other.GetComponent<BoxOutline>() != null && other.gameObject.name == gameObject.name)
             {
                 selectTarget = null;
+            }
+            else if (other.GetComponent<BoxOutline>() != null && other.transform.parent.gameObject.name == gameObject.name)
+            {
+                selectTarget = other.gameObject;
             }
         }
     }
